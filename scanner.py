@@ -27,6 +27,20 @@ class Scanner:
                     tokens.append(Token(dig, TokenType.INT, line))
                 else:
                     raise ComSyntaxException(f"Invalid integer literal at line {line}")
+
+            elif code[position] == '"':
+                string = ""
+                position += 1
+                # we dont allow multiline strings 
+                # speaking of usability
+                while position < len(code) and code[position] not in ['"', '\n']:
+                    string += code[position]
+                    position += 1
+                if position == len(code) or code[position] == '\n':
+                    raise ComSyntaxException(f"Invalid string literal at line {line}")
+                else:
+                    tokens.append(Token(string, TokenType.STR, line))
+                    position += 1
             
             # COMMENT_SLASH and DIV
             elif code[position] == '/':

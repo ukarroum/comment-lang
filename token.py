@@ -3,6 +3,7 @@ from enum import Enum, auto
 class TokenType(Enum):
     # available data types
     INT = auto() 
+    STR = auto()
 
     # two ways to put a comment
     COMMENT_SLASH = auto() # //

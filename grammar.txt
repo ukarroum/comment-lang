@@ -2,7 +2,7 @@ full_expression -> comment* expression
 
 comment -> comment_data
 comment_data -> '//' literal*
-literal -> NUMBER
+literal -> NUMBER | STRING
 
 expression -> operator*
 
