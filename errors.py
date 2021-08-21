@@ -1,2 +1,2 @@
 class ComSyntaxException(Exception):
-	pass
+    pass
